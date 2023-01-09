@@ -1,4 +1,4 @@
-import './assets/style.scss';
+import './public/assets/style.scss';
 import * as THREE from 'three';
 import { SphereGeometry } from 'three';
 
