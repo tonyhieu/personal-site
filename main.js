@@ -21,16 +21,19 @@ bridgeTexture.wrapS = THREE.RepeatWrapping;
 bridgeTexture.wrapT = THREE.RepeatWrapping;
 bridgeTexture.repeat.set( 40, 5 );
 
-const bridgeBumpMap = new THREE.TextureLoader().load("./assets/noiseTexture.png")
-const bridgeBumpScale = 1
+const bridgeBumpMap = new THREE.TextureLoader().load("./assets/cobblestone_bumps.PNG")
+bridgeBumpMap.wrapS = THREE.RepeatWrapping;
+bridgeBumpMap.wrapT = THREE.RepeatWrapping;
+bridgeBumpMap.repeat.set( 40, 5 );
+const bridgeBumpScale = 0.05
 
-const RAILINGDIMENSIONS = [39, 45, 30] // inner radius, outer radius, theta segments
+const RAILINGDIMENSIONS = [39, 43, 30] // inner radius, outer radius, theta segments
 const RAILINGOFFSET = BRIDGEDIMENSIONS[2] / 2
 
-const railingTexture = new THREE.TextureLoader().load("./assets/fence-transparent.png")
-railingTexture.wrapS = THREE.RepeatWrapping;
-railingTexture.wrapT = THREE.RepeatWrapping;
-railingTexture.repeat.set( 15, 5 );
+const railingTexture = new THREE.TextureLoader().load("./assets/fence-transparent-ring.png")
+// railingTexture.wrapS = THREE.RepeatWrapping;
+// railingTexture.wrapT = THREE.RepeatWrapping;
+// railingTexture.repeat.set( 15, 5 );
 
 const scene = new THREE.Scene();
 const backgroundColor = new THREE.Color(SKYCOLOR)
@@ -49,7 +52,6 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.set(0, 0, 40); // 0, 0, 40
-// camera.lookAt(...SUNPOSITION);
 
 const sunLight = new THREE.PointLight(SUNCOLOR, SUNINTENSITY, SUNDISTANCE, SUNDECAY);
 sunLight.position.set(...SUNPOSITION);
@@ -57,13 +59,13 @@ sunLight.position.set(...SUNPOSITION);
 const ambientLight = new THREE.AmbientLight(SUNCOLOR);
 
 let geometry = new THREE.CylinderGeometry(...BRIDGEDIMENSIONS);
-let material = new THREE.MeshPhongMaterial({ map: bridgeTexture, color: BRIDGECOLOR, bumpMap: bridgeBumpMap, bumpScale: bridgeBumpScale });
+let material = new THREE.MeshPhongMaterial({ map: bridgeTexture, color: BRIDGECOLOR, bumpMap: bridgeBumpMap, bumpScale: bridgeBumpScale, shininess: 1 });
 const bridge = new THREE.Mesh(geometry, material);
 bridge.position.set(...BRIDGEPOSITION)
 bridge.rotation.set(0, 0, Math.PI / 2)
 
-geometry = new THREE.RingBufferGeometry(...RAILINGDIMENSIONS);
-material = new THREE.MeshBasicMaterial({ color: BRIDGECOLOR });
+geometry = new THREE.RingGeometry(...RAILINGDIMENSIONS);
+material = new THREE.MeshBasicMaterial({ color: BRIDGECOLOR, map: railingTexture });
 
 const leftRailing = new THREE.Mesh(geometry, material);
 leftRailing.position.set(BRIDGEPOSITION[0] - RAILINGOFFSET, BRIDGEPOSITION[1], BRIDGEPOSITION[2]) // BRIDGEPOSITION[0] - RAILINGOFFSET, BRIDGEPOSITION[1], BRIDGEPOSITION[2]
