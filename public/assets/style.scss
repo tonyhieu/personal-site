@@ -1,4 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Hind', sans-serif;
+}
+
+:root {
+    --name-bg-color: rgba(255, 166, 0, 0.1);
+    --button-bg-color: rgba(219, 156, 39, 0.5);
+    --hover-button-bg-color: rgba(255, 222, 160, 0.5);
+}
 
 canvas {
     position: fixed;
@@ -7,72 +21,110 @@ canvas {
 }
 
 main {
-    width: 99%;
-    height: 99%;
+    width: 100%;
+    height: 100%;
     color: white;
     z-index: 99;
     position: absolute;
     margin: 0px auto;
 
-    display: grid;
-    grid-template-rows: 0.5fr 1.5fr 1fr 1fr;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-        "name"
-        "."
-        "."
-        "sections";
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
     .name {
         grid-area: name;
+        position: absolute;
         //border: 1px solid red;
 
-        font-family: 'Signika', sans-serif;
-        font-weight: 600;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 400;
         font-size: 4vw;
         text-align: left;
+
+        aspect-ratio: 1 / 1;
+        width: fit-content;
+        border-radius: 50%;
+        background-color: var(--name-bg-color);
+
+        display: flex;
+        align-items: center;
 
         span {
             display: block;
             width: fit-content;
             height: fit-content;
-
-            margin-left: 0.5em;
-            margin-top: 0.5em;
+            padding: 0.5em;
         }
     }
     
     .sections {
         grid-area: sections;
         //border: 1px solid red;
-        font-weight: 300;
 
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
 
-        button {
-            font-family: 'Signika', sans-serif;
-            
-            height: fit-content;
-            width: fit-content;
+        .button-wrapper {
+            position: absolute;
+            transform: rotate(var(--degrees)) translate(20vw);
 
-            padding-left: 20px;
-            padding-right: 20px;
+            button {
+                font-family: 'Source Sans Pro', sans-serif;
+                font-weight: 300;
+                text-align: left;
+                
+                height: fit-content;
+                width: 12vw;
 
-            background-color: rgba(69, 69, 69, 0.8);
-            border-radius: 0.5em;
-            border: none;
+                padding-left: 20px;
+                padding-right: 20px;
 
-            font-size: 3vw;
-            color: white;
-            text-decoration: none;
+                background-color: var(--button-bg-color);
+                border-radius: 0.5em;
+                border: none;
 
-            transition: all 0.5s;
+                font-size: 2.5vw;
+                color: white;
+                text-decoration: none;
+
+                transform: scale(100%);
+                transition: background-color 0.5s;
+            }
+
+            button:hover {
+                background-color: var(--hover-button-bg-color);
+            }
         }
 
-        button:hover {
-            transform: scale(110%);
+        @keyframes firstRotate {
+            from {
+                transform: rotate(0deg) translate(20vw);
+            }
+            to {
+                transform: rotate(calc(var(--degrees) + 360deg)) translate(20vw);
+            }
+        }
+
+        @keyframes continuedRotate {
+            from {
+                transform: rotate(var(--degrees)) translate(20vw);
+            }
+            to {
+                transform: rotate(calc(var(--degrees) + 360deg)) translate(20vw);
+            }
+        }
+
+        .rotating-wrapper {
+            animation: firstRotate, continuedRotate;
+            animation-duration: 4s, 10s;
+            animation-delay: 0s, 4s;
+            animation-iteration-count: 1, infinite;
+            animation-timing-function: cubic-bezier(0.47, 0, 0.4, 0.3), linear;
+            animation-fill-mode: forwards;
         }
     }
 }
