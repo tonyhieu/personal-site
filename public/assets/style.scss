@@ -41,7 +41,7 @@ main {
 
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 400;
-        font-size: 4vw;
+        font-size: 6vh;
         text-align: left;
 
         aspect-ratio: 1 / 1;
@@ -70,7 +70,7 @@ main {
 
         .button-wrapper {
             position: absolute;
-            transform: rotate(var(--degrees)) translate(20vw);
+            transform: rotate(var(--degrees)) translate(35vh);
 
             button {
                 font-family: 'Source Sans Pro', sans-serif;
@@ -78,7 +78,8 @@ main {
                 text-align: left;
                 
                 height: fit-content;
-                width: 12vw;
+                min-width: 25vh;
+                max-width: fit-content;
 
                 padding-left: 20px;
                 padding-right: 20px;
@@ -102,19 +103,19 @@ main {
 
         @keyframes firstRotate {
             from {
-                transform: rotate(0deg) translate(20vw);
+                transform: rotate(0deg) translate(35vh);
             }
             to {
-                transform: rotate(calc(var(--degrees) + 360deg)) translate(20vw);
+                transform: rotate(calc(var(--degrees) + 360deg)) translate(35vh);
             }
         }
 
         @keyframes continuedRotate {
             from {
-                transform: rotate(var(--degrees)) translate(20vw);
+                transform: rotate(var(--degrees)) translate(35vh);
             }
             to {
-                transform: rotate(calc(var(--degrees) + 360deg)) translate(20vw);
+                transform: rotate(calc(var(--degrees) + 360deg)) translate(35vh);
             }
         }
 

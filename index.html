@@ -7,6 +7,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16/faviconx16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
+    <meta name="robots" content="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -50,19 +52,20 @@
       let buttons = document.getElementsByClassName("rotating-wrapper");
       buttons = [...buttons]
 
-      console.log(buttons.length)
-      $(".rotating-wrapper").hover(
-        function() {
-          buttons.forEach(element => {
-            element.style.animationPlayState = "paused";
-          });
-        },
-        function () {
-          buttons.forEach(element => {
-            element.style.animationPlayState = "running";
-          });
-        }
-      )
+      setTimeout(function () {
+        $(".rotating-wrapper").hover(
+          function() {
+            buttons.forEach(element => {
+              element.style.animationPlayState = "paused";
+            });
+          },
+          function () {
+            buttons.forEach(element => {
+              element.style.animationPlayState = "running";
+            });
+          }
+        )
+      }, 4000);
     </script>
   </body>
 </html>
