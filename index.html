@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anthony Vo</title>
@@ -21,51 +22,88 @@
     <canvas id="bg"></canvas>
 
     <main>
-      <div class="name">
-        <span>Anthony Vo</span>
+      <div class="main-menu active" id="main-menu">
+        <div class="chips">
+          <span class="name">Anthony Vo</span>
+
+          <span class="about button" onclick="focusPage('about')">About</span>
+          <span class="work button" onclick="focusPage('work')">Work</span>
+          <span class="contact button" onclick="focusPage('contact')">Contact</span>
+        </div>
+      </div>
+      <!-- <a href="Anthony Vo Kagerou Project Paper.pdf">Paper</a> -->
+
+      <div class="section about-section" id="about">
+        <div class="back" onclick="focusMain()">
+          <i class="fa-solid fa-arrow-left"></i>
+        </div>
+
+        <p>About ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <div class="back" onclick="focusMain()">
+          <i class="fa-solid fa-arrow-left"></i>
+        </div>
       </div>
 
-      <div class="sections">
-        <div class="button-wrapper rotating-wrapper" style="--degrees: 0deg;">
-          <button>About</button>
+      <div class="section work-section" id="work">
+        <div class="back" onclick="focusMain()">
+          <i class="fa-solid fa-arrow-left"></i>
         </div>
-        <div class="button-wrapper rotating-wrapper" style="--degrees: 60deg;">
-          <button>Portfolio</button>
+
+        <p>Work ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <div class="back" onclick="focusMain()">
+          <i class="fa-solid fa-arrow-left"></i>
         </div>
-        <div class="button-wrapper rotating-wrapper" style="--degrees: 120deg;">
-          <button>Socials</button>
+      </div>
+
+      <div class="section contact-section" id="contact">
+        <div class="back" onclick="focusMain()">
+          <i class="fa-solid fa-arrow-left"></i>
         </div>
-        <div class="button-wrapper rotating-wrapper" style="--degrees: 180deg;">
-          <button>About</button>
-        </div>
-        <div class="button-wrapper rotating-wrapper" style="--degrees: 240deg;">
-          <button>Portfolio</button>
-        </div>
-        <div class="button-wrapper rotating-wrapper" style="--degrees: 300deg;">
-          <button>Socials</button>
+
+        <p>Contact ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <div class="back" onclick="focusMain()">
+          <i class="fa-solid fa-arrow-left"></i>
         </div>
       </div>
     </main>
 
     <script type="module" src="/main.js"></script>
+    
     <script>
-      let buttons = document.getElementsByClassName("rotating-wrapper");
-      buttons = [...buttons]
+      function focusPage(pageId) {
+        let menu = document.getElementById("main-menu");
+        let page = document.getElementById(pageId);
 
-      setTimeout(function () {
-        $(".rotating-wrapper").hover(
-          function() {
-            buttons.forEach(element => {
-              element.style.animationPlayState = "paused";
-            });
-          },
-          function () {
-            buttons.forEach(element => {
-              element.style.animationPlayState = "running";
-            });
-          }
-        )
-      }, 4000);
+        menu.classList.remove("active");
+        page.classList.add("active");
+      }
+
+      function focusMain() {
+        let menu = document.getElementById("main-menu");
+        let about = document.getElementById("about");
+        let work = document.getElementById("work");
+        let contact = document.getElementById("contact");
+
+        menu.classList.add("active");
+        about.classList.remove("active");
+        work.classList.remove("active");
+        contact.classList.remove("active");
+      }
     </script>
   </body>
 </html>

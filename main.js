@@ -1,10 +1,10 @@
-import './public/assets/style.scss';
+import './assets/style.scss';
 import * as THREE from 'three';
 import { SphereGeometry } from 'three';
 
 const SUNCOLOR = 0xfffccb; // 0xfbb57e 
 const SUNPOSITION = [0, 10, -40]
-const SUNINTENSITY = 1.7
+const SUNINTENSITY = 1.3
 const SUNDISTANCE = 0
 const SUNDECAY = 2
 
@@ -59,7 +59,7 @@ sunLight.position.set(...SUNPOSITION);
 const ambientLight = new THREE.AmbientLight(SUNCOLOR);
 
 let geometry = new THREE.CylinderGeometry(...BRIDGEDIMENSIONS);
-let material = new THREE.MeshPhongMaterial({ map: bridgeTexture, color: BRIDGECOLOR, bumpMap: bridgeBumpMap, bumpScale: bridgeBumpScale, shininess: 1 });
+let material = new THREE.MeshPhongMaterial({ map: bridgeTexture, color: BRIDGECOLOR, bumpMap: bridgeBumpMap, bumpScale: bridgeBumpScale, shininess: 0.2 });
 const bridge = new THREE.Mesh(geometry, material);
 bridge.position.set(...BRIDGEPOSITION)
 bridge.rotation.set(0, 0, Math.PI / 2)
