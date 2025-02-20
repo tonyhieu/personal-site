@@ -4,7 +4,7 @@ import { SphereGeometry } from 'three';
 
 const SUNCOLOR = 0xfffccb; // 0xfbb57e 
 const SUNPOSITION = [0, 10, -40]
-const SUNINTENSITY = 1.3
+const SUNINTENSITY = 1
 const SUNDISTANCE = 0
 const SUNDECAY = 2
 
