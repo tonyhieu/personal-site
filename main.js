@@ -4,7 +4,7 @@ import { SphereGeometry } from 'three';
 
 const SUNCOLOR = 0xfffccb; // 0xfbb57e 
 const SUNPOSITION = [0, 10, -40]
-const SUNINTENSITY = 5
+const SUNINTENSITY = 1
 const SUNDISTANCE = 0
 const SUNDECAY = 2
 
@@ -16,12 +16,12 @@ const BRIDGEPOSITION = [0, -45, 20]
 const BRIDGECOLOR = 0x7c4c39; // 0x3c1c12 0xe5924f #7c4c39
 const BRIDGEDIMENSIONS = [40, 40, 40, 64, 1] // radiusTop, radiusBottom, height, radial segments, height segments
 
-const bridgeTexture = new THREE.TextureLoader().load("./assets/cobblestone_texture.jpg")
+const bridgeTexture = new THREE.TextureLoader().load("3d-textures/cobblestone_texture.jpg")
 bridgeTexture.wrapS = THREE.RepeatWrapping;
 bridgeTexture.wrapT = THREE.RepeatWrapping;
 bridgeTexture.repeat.set( 40, 5 );
 
-const bridgeBumpMap = new THREE.TextureLoader().load("./assets/cobblestone_bumps.PNG")
+const bridgeBumpMap = new THREE.TextureLoader().load("3d-textures/cobblestone_bumps.PNG")
 bridgeBumpMap.wrapS = THREE.RepeatWrapping;
 bridgeBumpMap.wrapT = THREE.RepeatWrapping;
 bridgeBumpMap.repeat.set( 40, 5 );
@@ -30,7 +30,7 @@ const bridgeBumpScale = 0.05
 const RAILINGDIMENSIONS = [39, 43, 30] // inner radius, outer radius, theta segments
 const RAILINGOFFSET = BRIDGEDIMENSIONS[2] / 2
 
-const railingTexture = new THREE.TextureLoader().load("./assets/fence-transparent-ring.png")
+// const railingTexture = new THREE.TextureLoader().load("./assets/fence-transparent-ring.png")
 // railingTexture.wrapS = THREE.RepeatWrapping;
 // railingTexture.wrapT = THREE.RepeatWrapping;
 // railingTexture.repeat.set( 15, 5 );
@@ -65,7 +65,7 @@ bridge.position.set(...BRIDGEPOSITION)
 bridge.rotation.set(0, 0, Math.PI / 2)
 
 geometry = new THREE.RingGeometry(...RAILINGDIMENSIONS);
-material = new THREE.MeshBasicMaterial({ color: BRIDGECOLOR, map: railingTexture });
+material = new THREE.MeshBasicMaterial({ color: BRIDGECOLOR });
 
 const leftRailing = new THREE.Mesh(geometry, material);
 leftRailing.position.set(BRIDGEPOSITION[0] - RAILINGOFFSET, BRIDGEPOSITION[1], BRIDGEPOSITION[2]) // BRIDGEPOSITION[0] - RAILINGOFFSET, BRIDGEPOSITION[1], BRIDGEPOSITION[2]
