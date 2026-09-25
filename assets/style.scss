@@ -178,6 +178,18 @@ main {
 
         .text {
             margin-top: 35px;
+
+            // Keep text within the section so it scrolls instead of clipping
+            // into the back arrow or running past the edge of the screen.
+            max-height: calc(100% - 35px);
+            overflow-y: auto;
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
             p {
                 a {
                     color: white;
@@ -190,6 +202,10 @@ main {
 
             @media only screen and (min-width: 768px) {
                 margin-top: 0px;
+
+                // Flex items default to min-height: auto, which would ignore
+                // the max-height above; reset it so scrolling still applies.
+                min-height: 0;
             }
         }
     }
